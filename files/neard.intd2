@@ -1,0 +1,23 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Purpose License v2
+# $Header: $
+
+depend() {
+   need dbus
+}
+
+start() {
+   ebegin "Starting NFC"
+   modprobe -q nfc || true
+   start-stop-daemon --start --quiet --exec /usr/lib/neard/neard -- ${NEARD_OPTS}
+   eend $?
+}
+
+stop() {
+   ebegin "Stopping NFC"
+   start-stop-daemon --stop --quiet --exec /usr/lib/neard/neard
+   eend $?
+}
+
+# vim: set ft=gentoo-init-d ts=3 sw=3 et:
