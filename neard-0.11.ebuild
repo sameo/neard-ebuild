@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI="4"
 inherit base
 
 DESCRIPTION="Provides a Near Field Communication (NFC) management daemon"
@@ -11,7 +11,7 @@ SRC_URI="mirror://kernel/linux/network/nfc/${P}.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86"
+KEYWORDS="amd64 arm x86"
 IUSE="debug tools"
 
 RDEPEND=">=dev-libs/glib-2.28
